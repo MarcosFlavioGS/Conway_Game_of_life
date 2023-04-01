@@ -11,9 +11,9 @@ To run this project, you need to have Python 3 installed on your system. You als
 - Scipy
 
 You can install these dependencies using pip. Open your terminal or command prompt and run the following commands:
-
+´´´sh
 pip install pygame numpy scipy
-
+´´´
 ## Usage
 
 To run the project, open the terminal or command prompt in the project directory and run the following command:
