@@ -11,15 +11,17 @@ To run this project, you need to have Python 3 installed on your system. You als
 - Scipy
 
 You can install these dependencies using pip. Open your terminal or command prompt and run the following commands:
-´´´sh
+
+```sh
 pip install pygame numpy scipy
-´´´
+```
 ## Usage
 
 To run the project, open the terminal or command prompt in the project directory and run the following command:
 
+```sh
 python main.py
-
+```
 This will open a window showing the initial state of the grid. Press the "W" key to start the simulation. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window or pressing the "Q" key.
 
 ## Code Structure
