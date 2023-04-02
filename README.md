@@ -22,7 +22,11 @@ To run the project, open the terminal or command prompt in the project directory
 ```sh
 python3 main.py
 ```
-This will open a window showing the initial state of the grid. Press the "W" key to start the simulation. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window or pressing the "Q" key.
+This will open a window showing the initial state of the grid. Press the "W" key to start the simulation and press "S" to pause the simulation. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window.
+
+### Mouse
+
+The program permit to the user to insert new cells using the mouse. It can be done both when simulation is running and when paused. Experiement pausing the simulation and then drawing creazy forms on the screen to see what forms will be made from it.
 
 ## Code Structure
 
