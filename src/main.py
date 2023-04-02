@@ -54,9 +54,9 @@ while running:
     screen.fill("Black")
 
     keys = py.key.get_pressed()
-    if keys[py.K_w]:  #Start execution
+    if keys[py.K_w]:  # Start execution
         key = True
-    if keys[py.K_s]:  #Stop execution
+    if keys[py.K_s]:  # Stop execution
         key = False
     if key:
         grid = update_grid(grid)
