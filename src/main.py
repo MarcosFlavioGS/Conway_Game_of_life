@@ -44,6 +44,7 @@ for row in grid:  # visualizing grid
 
 mouse_down = False
 prev_grid_state = None
+key = False
 
 while running:
     for event in py.event.get():
@@ -53,7 +54,11 @@ while running:
     screen.fill("Black")
 
     keys = py.key.get_pressed()
-    if keys[py.K_w]:
+    if keys[py.K_w]:  #Start execution
+        key = True
+    if keys[py.K_s]:  #Stop execution
+        key = False
+    if key:
         grid = update_grid(grid)
 
     if py.mouse.get_pressed() == (1, 0, 0):
