@@ -1,3 +1,5 @@
+![Conway](https://user-images.githubusercontent.com/95108526/229325728-a95e5aca-07e1-429d-9538-25b7591ce783.PNG)
+
 # Conway's Game of Life using Pygame and Numpy
 
 This project is an implementation of Conway's Game of Life using Pygame and Numpy libraries in Python. The Game of Life is a cellular automaton created by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state and does not require any further input.
