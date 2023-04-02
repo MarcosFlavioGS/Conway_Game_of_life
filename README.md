@@ -30,6 +30,8 @@ This will open a window showing the initial state of the grid. Press the "W" key
 
 The program permit to the user to insert new cells using the mouse. It can be done both when simulation is running and when paused. Experiement pausing the simulation and then drawing creazy forms on the screen to see what forms will be made from it.
 
+![mouse_game_of_life](https://user-images.githubusercontent.com/95108526/229325852-8d6480b9-d88d-4207-a959-956c70092f76.PNG)
+
 ## Code Structure
 
 The `main.py` file contains the main code for the project. It initializes the Pygame library and creates a window to display the grid. It also contains the game loop that updates the grid and redraws it on the screen.
