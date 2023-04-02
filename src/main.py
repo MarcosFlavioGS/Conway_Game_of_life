@@ -12,11 +12,19 @@ def update_grid(grid):
     return arr
 
 
-def draw_grid(grid, screen, pos, size):
+def draw_grid(grid, screen, pos, size, mouse=py.Vector2(300, 800)):
+    mouse_grid_x = int((mouse.x - pos.x) / size)
+    mouse_grid_y = int((mouse.y - pos.y) / size)
+
     for i, row in enumerate(grid):
         for j, val in enumerate(row):
+            posx = pos.x + j * size
+            posy = pos.y + i * size
+            rect_pos = py.Vector2(posx, posy)
+            if i == mouse_grid_y and j == mouse_grid_x:
+                grid[i][j] = 1
+                py.draw.rect(screen, "White", py.Rect(rect_pos.x, rect_pos.y, size, size))
             if val == 1:
-                rect_pos = py.Vector2(pos.x + j * size, pos.y + i * size)
                 py.draw.rect(screen, "White", py.Rect(rect_pos.x, rect_pos.y, size, size))
 
 
@@ -34,6 +42,9 @@ grid = [[random.randint(0, 1) for i in range(cols)]for j in range(rows)]
 for row in grid:  # visualizing grid
     print(row)
 
+mouse_down = False
+prev_grid_state = None
+
 while running:
     for event in py.event.get():
         if event.type == py.QUIT:
@@ -45,7 +56,12 @@ while running:
     if keys[py.K_w]:
         grid = update_grid(grid)
 
-    draw_grid(grid, screen, pos, cell_size)
+    if py.mouse.get_pressed() == (1, 0, 0):
+        mouse_pos = py.Vector2(py.mouse.get_pos())
+        print(mouse_pos)
+        draw_grid(grid, screen, pos, cell_size, mouse_pos)
+    else:
+        draw_grid(grid, screen, pos, cell_size)
 
     py.display.flip()
 
