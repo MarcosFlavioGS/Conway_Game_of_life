@@ -23,9 +23,11 @@ def draw_grid(grid, screen, pos, size, mouse=py.Vector2(300, 800)):
             rect_pos = py.Vector2(posx, posy)
             if i == mouse_grid_y and j == mouse_grid_x:
                 grid[i][j] = 1
-                py.draw.rect(screen, "White", py.Rect(rect_pos.x, rect_pos.y, size, size))
+                py.draw.rect(screen, "White", py.Rect(rect_pos.x,
+                                                      rect_pos.y, size, size))
             if val == 1:
-                py.draw.rect(screen, "White", py.Rect(rect_pos.x, rect_pos.y, size, size))
+                py.draw.rect(screen, "White", py.Rect(rect_pos.x,
+                                                      rect_pos.y, size, size))
 
 
 py.init()
@@ -34,6 +36,7 @@ clock = py.time.Clock()
 running = True
 dt = 0
 
+update = False
 pos = py.Vector2(0, 0)
 cols = 160
 rows = 80
@@ -41,10 +44,6 @@ cell_size = 10
 grid = [[random.randint(0, 1) for i in range(cols)]for j in range(rows)]
 for row in grid:  # visualizing grid
     print(row)
-
-mouse_down = False
-prev_grid_state = None
-key = False
 
 while running:
     for event in py.event.get():
@@ -54,15 +53,17 @@ while running:
     screen.fill("Black")
 
     keys = py.key.get_pressed()
+    if keys[py.K_ESCAPE]:  # Exit execution on Esc
+        running = False
     if keys[py.K_w]:  # Start execution
-        key = True
-    if keys[py.K_s]:  # Stop execution
-        key = False
-    if key:
+        update = True
+    if keys[py.K_s]:  # Pause execution
+        update = False
+    if update:
         grid = update_grid(grid)
 
     if py.mouse.get_pressed() == (1, 0, 0):
-        mouse_pos = py.Vector2(py.mouse.get_pos())
+        mouse_pos = py.Vector2(py.mouse.get_pos())  # Get mouse position to draw cell on
         print(mouse_pos)
         draw_grid(grid, screen, pos, cell_size, mouse_pos)
     else:
