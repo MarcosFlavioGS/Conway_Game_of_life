@@ -20,7 +20,7 @@ pip install pygame numpy scipy
 To run the project, open the terminal or command prompt in the project directory and run the following command:
 
 ```sh
-python main.py
+python3 main.py
 ```
 This will open a window showing the initial state of the grid. Press the "W" key to start the simulation. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window or pressing the "Q" key.
 
