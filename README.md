@@ -1,4 +1,4 @@
-![Conway](https://user-images.githubusercontent.com/95108526/229325728-a95e5aca-07e1-429d-9538-25b7591ce783.PNG)
+![Conway](https://user-images.githubusercontent.com/95108526/229960089-4e04394c-61a1-47b3-acfa-5d54c9ea20ca.PNG)
 
 # Conway's Game of Life using Pygame and Numpy
 
@@ -30,7 +30,7 @@ This will open a window showing the initial state of the grid. Press the "W" key
 
 The program permit to the user to insert new cells using the mouse. It can be done both when simulation is running and when paused. Experiement pausing the simulation and then drawing creazy forms on the screen to see what forms will be made from it.
 
-![mouse_game_of_life](https://user-images.githubusercontent.com/95108526/229325852-8d6480b9-d88d-4207-a959-956c70092f76.PNG)
+![mouse_game_of_life](https://user-images.githubusercontent.com/95108526/229960132-6ca1fa20-adb9-4d38-a27f-3e21c776e1b3.PNG)
 
 ## Code Structure
 
