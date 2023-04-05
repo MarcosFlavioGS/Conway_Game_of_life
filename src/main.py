@@ -4,6 +4,14 @@ import numpy
 import scipy.signal
 
 
+def clean_grid():
+    return [[0 for i in range(cols)]for j in range(rows)]
+
+
+def random_grid():
+    return [[random.randint(0, 1) for i in range(cols)]for j in range(rows)]
+
+
 def update_grid(grid):
     arr = grid
     arr = numpy.array(arr)
@@ -23,15 +31,18 @@ def draw_grid(grid, screen, pos, size, mouse=py.Vector2(300, 800)):
             rect_pos = py.Vector2(posx, posy)
             if i == mouse_grid_y and j == mouse_grid_x:
                 grid[i][j] = 1
-                py.draw.rect(screen, "White", py.Rect(rect_pos.x,
+                py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
                                                       rect_pos.y, size, size))
             if val == 1:
-                py.draw.rect(screen, "White", py.Rect(rect_pos.x,
+                py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
                                                       rect_pos.y, size, size))
 
 
 py.init()
-screen = py.display.set_mode((1280, 730))
+screen_info = py.display.Info()
+screen_width = screen_info.current_w
+screen_height = screen_info.current_h
+screen = py.display.set_mode((screen_width, screen_height))
 clock = py.time.Clock()
 running = True
 dt = 0
@@ -41,7 +52,7 @@ pos = py.Vector2(0, 0)
 cols = 160
 rows = 80
 cell_size = 10
-grid = [[random.randint(0, 1) for i in range(cols)]for j in range(rows)]
+grid = [[0 for i in range(cols)]for j in range(rows)]  # Initial grid
 for row in grid:  # visualizing grid
     print(row)
 
@@ -50,7 +61,7 @@ while running:
         if event.type == py.QUIT:
             running = False
 
-    screen.fill("Black")
+    screen.fill("#36454F")
 
     keys = py.key.get_pressed()
     if keys[py.K_ESCAPE]:  # Exit execution on Esc
@@ -59,6 +70,10 @@ while running:
         update = True
     if keys[py.K_s]:  # Pause execution
         update = False
+    if keys[py.K_r]:  # Put random cells all over the screen
+        grid = random_grid()
+    if keys[py.K_c]:  # Clean grid
+        grid = clean_grid()
     if update:
         grid = update_grid(grid)
 
@@ -71,6 +86,6 @@ while running:
 
     py.display.flip()
 
-    dt = clock.tick(60) / 1000
+    dt = clock.tick(10) / 1000  # Frames. Seting to 10 to visualize better
 
 py.quit()
