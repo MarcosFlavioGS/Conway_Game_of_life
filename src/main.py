@@ -61,7 +61,7 @@ while running:
         if event.type == py.QUIT:
             running = False
 
-    screen.fill("#36454F")
+    screen.fill("#71797E")
 
     keys = py.key.get_pressed()
     if keys[py.K_ESCAPE]:  # Exit execution on Esc
