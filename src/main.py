@@ -20,7 +20,7 @@ def update_grid(grid):
     return arr
 
 
-def draw_grid(grid, screen, pos, size, mouse=py.Vector2(300, 800)):
+def draw_grid(grid, screen, pos, size, mouse=py.Vector2(5000, 5000)):
     mouse_grid_x = int((mouse.x - pos.x) / size)
     mouse_grid_y = int((mouse.y - pos.y) / size)
 
@@ -50,7 +50,7 @@ dt = 0
 update = False
 pos = py.Vector2(0, 0)
 cols = 160
-rows = 80
+rows = 100
 cell_size = 10
 grid = [[0 for i in range(cols)]for j in range(rows)]  # Initial grid
 for row in grid:  # visualizing grid
