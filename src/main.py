@@ -32,10 +32,10 @@ def draw_grid(grid, screen, pos, size, mouse=py.Vector2(300, 800)):
             if i == mouse_grid_y and j == mouse_grid_x:
                 grid[i][j] = 1
                 py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
-                                                      rect_pos.y, size, size))
+                                                        rect_pos.y, size, size))
             if val == 1:
                 py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
-                                                      rect_pos.y, size, size))
+                                                        rect_pos.y, size, size))
 
 
 py.init()
