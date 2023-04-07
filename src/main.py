@@ -20,9 +20,13 @@ def update_grid(grid):
     return arr
 
 
-def draw_grid(grid, screen, pos, size, mouse=py.Vector2(5000, 5000)):
-    mouse_grid_x = int((mouse.x - pos.x) / size)
-    mouse_grid_y = int((mouse.y - pos.y) / size)
+def draw_grid(grid, screen, pos, size, mouse=None):
+    if mouse:
+        mouse_grid_x = int((mouse.x - pos.x) / size)
+        mouse_grid_y = int((mouse.y - pos.y) / size)
+    else:
+        mouse_grid_x = None
+        mouse_grid_y = None
 
     for i, row in enumerate(grid):
         for j, val in enumerate(row):
@@ -31,11 +35,11 @@ def draw_grid(grid, screen, pos, size, mouse=py.Vector2(5000, 5000)):
             rect_pos = py.Vector2(posx, posy)
             if i == mouse_grid_y and j == mouse_grid_x:
                 grid[i][j] = 1
-                py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
-                                                        rect_pos.y, size, size))
+                py.draw.rect(screen, "#4CBB17",
+                             py.Rect(rect_pos.x, rect_pos.y, size, size))
             if val == 1:
-                py.draw.rect(screen, "#4CBB17", py.Rect(rect_pos.x,
-                                                        rect_pos.y, size, size))
+                py.draw.rect(screen, "#4CBB17",
+                             py.Rect(rect_pos.x, rect_pos.y, size, size))
 
 
 py.init()
