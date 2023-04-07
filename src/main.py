@@ -49,9 +49,9 @@ dt = 0
 
 update = False
 pos = py.Vector2(0, 0)
-cols = 160
-rows = 100
 cell_size = 10
+cols = int(screen_width / cell_size)
+rows = int(screen_height / cell_size)
 grid = new_grid(cols, rows)  # Initial grid
 for row in grid:  # visualizing grid
     print(row)
