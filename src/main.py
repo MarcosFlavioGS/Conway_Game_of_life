@@ -4,11 +4,11 @@ import numpy
 import scipy.signal
 
 
-def clean_grid():
-    return [[0 for i in range(cols)]for j in range(rows)]
+def new_grid(cols, rows, num=0):
+    return [[num for i in range(cols)]for j in range(rows)]
 
 
-def random_grid():
+def random_grid(cols, rows):
     return [[random.randint(0, 1) for i in range(cols)]for j in range(rows)]
 
 
@@ -52,7 +52,7 @@ pos = py.Vector2(0, 0)
 cols = 160
 rows = 100
 cell_size = 10
-grid = [[0 for i in range(cols)]for j in range(rows)]  # Initial grid
+grid = new_grid(cols, rows)  # Initial grid
 for row in grid:  # visualizing grid
     print(row)
 
@@ -71,14 +71,14 @@ while running:
     if keys[py.K_s]:  # Pause execution
         update = False
     if keys[py.K_r]:  # Put random cells all over the screen
-        grid = random_grid()
+        grid = random_grid(cols, rows)
     if keys[py.K_c]:  # Clean grid
-        grid = clean_grid()
+        grid = new_grid(cols, rows)
     if update:
         grid = update_grid(grid)
 
     if py.mouse.get_pressed() == (1, 0, 0):
-        mouse_pos = py.Vector2(py.mouse.get_pos())  # Get mouse position to draw cell on
+        mouse_pos = py.Vector2(py.mouse.get_pos())
         print(mouse_pos)
         draw_grid(grid, screen, pos, cell_size, mouse_pos)
     else:
