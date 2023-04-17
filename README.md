@@ -24,7 +24,7 @@ To run the project, open the terminal or command prompt in the project directory
 ```sh
 python3 main.py
 ```
-This will open a window showing the initial state of the grid. Press the "W" key to start the simulation and press "S" to pause the simulation. At first, the screen will start blank, pressing 'r' will fill the screen with rangom cells, or you can use your mouse to draw on the screen. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window. You can clean the screen pressing 'c'.
+This will open a window showing the initial state of the grid. Press the "space" key to start and pause the simulation. At first, the screen will start blank, pressing 'r' will fill the screen with rangom cells, or you can use your mouse to draw on the screen. The cells will evolve according to the rules of Conway's Game of Life. You can stop the simulation by closing the window. You can clean the screen pressing 'c'.
 
 ### Mouse
 

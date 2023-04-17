@@ -53,7 +53,7 @@ dt = 0
 
 update = False
 pos = py.Vector2(0, 0)
-cell_size = 10
+cell_size = 15
 cols = int(screen_width / cell_size)
 rows = int(screen_height / cell_size)
 grid = new_grid(cols, rows)  # Initial grid
@@ -70,10 +70,8 @@ while running:
     keys = py.key.get_pressed()
     if keys[py.K_ESCAPE]:  # Exit execution on Esc
         running = False
-    if keys[py.K_w]:  # Start execution
-        update = True
-    if keys[py.K_s]:  # Pause execution
-        update = False
+    if keys[py.K_SPACE]:  # Start and pause execution
+        update ^= True
     if keys[py.K_r]:  # Put random cells all over the screen
         grid = random_grid(cols, rows)
     if keys[py.K_c]:  # Clean grid
